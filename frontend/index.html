@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pawan Kumar Store — Premium Collection</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="/css/store.css"/>
+</head>
+<body>
+
+<!-- ── HEADER ─────────────────────────────────────────────────────────── -->
+<header class="header" id="header">
+  <div class="header-inner">
+    <a href="/" class="logo">
+      <span class="logo-icon">✦</span>
+      <span class="logo-text">Pawan Kumar</span>
+      <span class="logo-tag">Store</span>
+    </a>
+    <nav class="nav" id="nav">
+      <a href="/" class="nav-link active">Home</a>
+      <a href="#products" class="nav-link">Products</a>
+      <a href="#categories" class="nav-link">Categories</a>
+      <a href="#about" class="nav-link">About</a>
+    </nav>
+    <div class="header-actions">
+      <div class="search-wrap">
+        <input type="text" id="searchInput" class="search-input" placeholder="Search products…"/>
+        <span class="search-icon">⌕</span>
+      </div>
+      <button class="cart-btn" id="cartBtn" aria-label="Cart">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ── HERO ───────────────────────────────────────────────────────────── -->
+<section class="hero">
+  <div class="hero-bg">
+    <div class="hero-orb hero-orb--1"></div>
+    <div class="hero-orb hero-orb--2"></div>
+    <div class="hero-grid"></div>
+  </div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Welcome to</p>
+    <h1 class="hero-title">Pawan Kumar<br/><em>Premium Store</em></h1>
+    <p class="hero-subtitle">Curated excellence, delivered to your door.</p>
+    <div class="hero-actions">
+      <a href="#products" class="btn btn--primary">Explore Collection</a>
+      <a href="#categories" class="btn btn--ghost">Browse Categories</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="hero-scroll-line"></div>
+  </div>
+</section>
+
+<!-- ── STATS BAR ──────────────────────────────────────────────────────── -->
+<div class="stats-bar">
+  <div class="stat"><span class="stat-num" id="statProducts">0</span><span class="stat-label">Products</span></div>
+  <div class="stat-div"></div>
+  <div class="stat"><span class="stat-num">100%</span><span class="stat-label">Authentic</span></div>
+  <div class="stat-div"></div>
+  <div class="stat"><span class="stat-num">Free</span><span class="stat-label">Shipping ₹999+</span></div>
+  <div class="stat-div"></div>
+  <div class="stat"><span class="stat-num">24/7</span><span class="stat-label">Support</span></div>
+</div>
+
+<!-- ── CATEGORIES ─────────────────────────────────────────────────────── -->
+<section class="section" id="categories">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-eyebrow">Browse by</p>
+      <h2 class="section-title">Categories</h2>
+    </div>
+    <div class="categories-grid" id="categoriesGrid">
+      <button class="cat-pill active" data-cat="All">All Products</button>
+    </div>
+  </div>
+</section>
+
+<!-- ── PRODUCTS ───────────────────────────────────────────────────────── -->
+<section class="section" id="products">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-eyebrow">Our</p>
+      <h2 class="section-title">Collection</h2>
+      <div class="sort-wrap">
+        <select id="sortSelect" class="sort-select">
+          <option value="createdAt-desc">Newest First</option>
+          <option value="price-asc">Price: Low to High</option>
+          <option value="price-desc">Price: High to Low</option>
+          <option value="name-asc">Name A–Z</option>
+        </select>
+      </div>
+    </div>
+    <div class="products-grid" id="productsGrid">
+      <!-- Products rendered here -->
+    </div>
+    <div class="loading-wrap" id="loadingWrap">
+      <div class="spinner"></div>
+      <p>Loading collection…</p>
+    </div>
+    <div class="empty-state" id="emptyState" style="display:none">
+      <div class="empty-icon">✦</div>
+      <h3>No products found</h3>
+      <p>Try a different search or category.</p>
+    </div>
+    <div class="pagination" id="pagination"></div>
+  </div>
+</section>
+
+<!-- ── ABOUT ──────────────────────────────────────────────────────────── -->
+<section class="section section--dark" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text">
+        <p class="section-eyebrow">About Us</p>
+        <h2 class="section-title">The Pawan Kumar<br/>Promise</h2>
+        <p>We believe that quality and affordability should never be mutually exclusive. Every product in our store is hand-selected for its craftsmanship, durability, and value.</p>
+        <p>Founded with a passion for excellence, Pawan Kumar Store brings you the finest products across categories — from electronics to lifestyle essentials.</p>
+        <div class="about-features">
+          <div class="about-feat"><span>✓</span> Genuine Products</div>
+          <div class="about-feat"><span>✓</span> Secure Payments</div>
+          <div class="about-feat"><span>✓</span> Easy Returns</div>
+          <div class="about-feat"><span>✓</span> Fast Delivery</div>
+        </div>
+      </div>
+      <div class="about-visual">
+        <div class="about-card">
+          <div class="about-card-inner">
+            <div class="big-text">PK</div>
+            <p>Premium Quality</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ─────────────────────────────────────────────────────────── -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">✦ Pawan Kumar Store</div>
+        <p>Your trusted destination for premium products at the best prices.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <a href="/">Home</a>
+        <a href="#products">Products</a>
+        <a href="#categories">Categories</a>
+        <a href="/admin">Admin Panel</a>
+      </div>
+      <div class="footer-links">
+        <h4>Support</h4>
+        <a href="#">FAQs</a>
+        <a href="#">Shipping Policy</a>
+        <a href="#">Return Policy</a>
+        <a href="#">Contact Us</a>
+      </div>
+      <div class="footer-contact">
+        <h4>Contact</h4>
+        <p>📧 store@pawankumar.in</p>
+        <p>📞 +91 98765 43210</p>
+        <p>📍 Lucknow, Uttar Pradesh</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2024 Pawan Kumar Store. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ── PRODUCT MODAL ──────────────────────────────────────────────────── -->
+<div class="modal-overlay" id="productModal">
+  <div class="modal">
+    <button class="modal-close" id="modalClose">✕</button>
+    <div class="modal-body" id="modalBody"></div>
+  </div>
+</div>
+
+<!-- ── CART DRAWER ────────────────────────────────────────────────────── -->
+<div class="cart-overlay" id="cartOverlay"></div>
+<div class="cart-drawer" id="cartDrawer">
+  <div class="cart-header">
+    <h3>Your Cart</h3>
+    <button class="cart-close" id="cartClose">✕</button>
+  </div>
+  <div class="cart-items" id="cartItems"></div>
+  <div class="cart-footer">
+    <div class="cart-total"><span>Total</span><span id="cartTotal">₹0</span></div>
+    <button class="btn btn--primary btn--full">Checkout</button>
+  </div>
+</div>
+
+<!-- ── TOAST ──────────────────────────────────────────────────────────── -->
+<div class="toast-container" id="toastContainer"></div>
+
+<script src="/js/store.js"></script>
+</body>
+</html>
